@@ -7,13 +7,18 @@ import CreateButtonsUnit from "../buttons-unit/ButtonsUnit";
 import CreateInputArea from "../ input-area/InputArea";
 
 export default function Counter() {
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    const activateDispatch = (type, payload) => {
+        dispatch({type, payload})
+    };
+
     return (
         <div>
             <Title/>
             <Result result={state.result}/>
-            <CreateButtonsUnit/>
-            <CreateInputArea/>
+            <CreateButtonsUnit btnArr={state.btnArr} activateDispatch={activateDispatch} />
+            <CreateInputArea activateDispatch={activateDispatch} state={state}/>
         </div>
     )
 }
