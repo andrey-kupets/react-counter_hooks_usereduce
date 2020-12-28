@@ -16,8 +16,8 @@ const reducer = (state, action) => {
         }
         case 'SUBMIT': {
             return (result + inputValue) > 0
-            ? {...state, result: result + inputValue}
-            : {...state, result: 0};
+            ? {...state, result: result + inputValue, inputValue: ''}
+            : {...state, result: 0, inputValue: ''};
         }
         default: {
             console.log(`Error! Action $(type) isn't valid. Try again`);
